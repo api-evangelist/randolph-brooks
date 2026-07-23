@@ -1,0 +1,38 @@
+aid: randolph-brooks
+url: https://raw.githubusercontent.com/api-evangelist/randolph-brooks/refs/heads/main/apis.yml
+name: Randolph-Brooks FCU
+kind: company
+description: Randolph-Brooks Federal Credit Union (RBFCU) is a member-owned, not-for-profit
+  federal credit union headquartered in Live Oak, Texas, federally insured by the NCUA
+  and serving more than one million members across Texas and beyond. Chartered as a
+  federal credit union rather than a state or national bank, RBFCU is one of the largest
+  credit unions in the United States by membership and assets, offering retail banking,
+  mortgages, auto loans, credit cards, and deposit products through branches and digital
+  channels. As a member-focused retail institution, RBFCU publishes no first-party public
+  developer program, API documentation, or downloadable OpenAPI/Swagger specifications;
+  consumer-permissioned account data is reached through third-party aggregators (such as
+  Plaid, MX, Finicity, or Akoya) rather than a directly documented open-finance API, and
+  it publishes no stated CFPB Section 1033 data-access posture or documented FDX participation.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- United States
+- Credit Union
+- Retail Banking
+- Open Finance
+- Data Aggregation
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.rbfcu.org
+- type: Blog
+  url: https://www.rbfcu.org/news
+- type: PrivacyPolicy
+  url: https://www.rbfcu.org/privacy-security
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

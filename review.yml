@@ -1,0 +1,79 @@
+aid: randolph-brooks
+name: Randolph-Brooks FCU
+review:
+  question: Does Randolph-Brooks FCU expose a public first-party developer API, downloadable OpenAPI/Swagger, or a documented FDX / CFPB 1033 open-finance posture?
+  answer: false
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    Randolph-Brooks Federal Credit Union (RBFCU) is a member-owned federal
+    credit union in Live Oak, Texas (1M+ members, NCUA-insured). It publishes
+    NO public first-party developer program, no API documentation, and no
+    downloadable OpenAPI/Swagger. Probing found no developer portal: the
+    hostnames developer.rbfcu.org and developers.rbfcu.org do not resolve
+    (DNS NXDOMAIN), and the main-site paths /developers, /developer, /api,
+    /apis, and /developer-portal all return HTTP 404. An api.rbfcu.org host
+    resolves (72.19.3.118) but returns HTTP 404 at its root and carries no
+    public documentation — it is an application/mobile backend, not a
+    documented public API. No stated CFPB Section 1033 data-access posture
+    and no documented FDX (Financial Data Exchange) participation were found
+    published by the institution. Consumer-permissioned account data is, per
+    the typical US credit-union model, reached through third-party
+    aggregators (Plaid, MX, Finicity, Akoya) rather than a first-party API.
+    Because there is no public API surface, no authentication/authorization
+    model (OAuth2/OIDC, API key, or mTLS) could be observed, and no spec was
+    harvested (no provenance).
+  posture:
+    firstPartyDeveloperPortal: false
+    developerPortalUrl: ""
+    portalHttpStatus: "NXDOMAIN (developer./developers. do not resolve); main-site /developers, /developer, /api = 404"
+    downloadableOpenAPI: false
+    specProvenance: none
+    fdxParticipant: false
+    section1033Posture: not published
+    aggregatorAccess: true
+    aggregatorNote: Data access is via third-party aggregators (Plaid/MX/Finicity/Akoya), not a documented first-party API.
+    authModel: not observed (no public API surface)
+    coreProviderChannel: US credit unions typically participate in open finance only via their core banking provider or an aggregator.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public REST API is documented. api.rbfcu.org resolves but returns 404 at root and publishes no docs (application backend, not a public API).
+    - protocol: FDX
+      documented: false
+      note: No documented FDX-conformant data-access API or FDX participation published by the institution.
+probes:
+  - url: https://www.rbfcu.org
+    httpStatus: 200
+    note: Main website. Confirms RBFCU is a federal credit union serving 1M+ members in Texas, NCUA-insured. No developer program, public API, or open-banking reference found.
+  - url: https://developer.rbfcu.org
+    httpStatus: "000 (DNS NXDOMAIN)"
+    note: Does not resolve.
+  - url: https://developers.rbfcu.org
+    httpStatus: "000 (DNS NXDOMAIN)"
+    note: Does not resolve.
+  - url: https://api.rbfcu.org
+    httpStatus: 404
+    note: Host resolves (72.19.3.118) but returns 404 at root with no public documentation; application backend, not a documented public API.
+  - url: https://www.rbfcu.org/developers
+    httpStatus: 404
+    note: No developer page.
+  - url: https://www.rbfcu.org/api
+    httpStatus: 404
+    note: No API page.
+sources:
+  - url: https://www.rbfcu.org
+    type: Website
+    note: Institution identity, membership size, NCUA insurance, charter type; no developer/API references.
+  - url: https://www.rbfcu.org/privacy-security
+    type: PrivacyPolicy
+    note: Privacy & security disclosures (HTTP 200). No third-party API data-sharing developer program.
+actions:
+  openapiHarvested: false
+  reason: |
+    No public first-party API surface, no downloadable OpenAPI/Swagger, and no
+    documented FDX/1033 data-access API exist for this institution. This is an
+    identity-only (built-stub) record. The honest posture is: no public API;
+    consumer data access is aggregator-mediated via the core banking channel.
