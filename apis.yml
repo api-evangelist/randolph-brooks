@@ -23,16 +23,20 @@ tags:
 - Open Finance
 - Data Aggregation
 created: '2026-07-23'
-modified: '2026-07-23'
+modified: '2026-07-23T15:30:00Z'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/randolph-brooks-domain-security.yml
 - type: Website
   url: https://www.rbfcu.org
 - type: Blog
   url: https://www.rbfcu.org/news
 - type: PrivacyPolicy
   url: https://www.rbfcu.org/privacy-security
+- type: Support
+  url: https://www.rbfcu.org/contact-us
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
