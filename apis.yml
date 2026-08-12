@@ -13,6 +13,17 @@ description: Randolph-Brooks Federal Credit Union (RBFCU) is a member-owned, not
   consumer-permissioned account data is reached through third-party aggregators (such as
   Plaid, MX, Finicity, or Akoya) rather than a directly documented open-finance API, and
   it publishes no stated CFPB Section 1033 data-access posture or documented FDX participation.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-11'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Financial Services
